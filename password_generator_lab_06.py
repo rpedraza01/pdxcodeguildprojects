@@ -3,19 +3,19 @@ while True:
     print("Welcome to the password generator. Let's get you a new password.")
     import random
     import string
-    lowercase_length = int(input("How many lowercase letter would you like? > "))
+    lowercase_length = int(input("How many lowercase letters would you like in your password? > "))
     lowercase = ""
     for number in range(0, int(lowercase_length)):
         lowercase += random.choice(string.ascii_lowercase)
-    uppercase_length = int(input("How many uppercase letter would you like? > "))
+    uppercase_length = int(input("How many uppercase letters would you like in your password? > "))
     uppercase = ""
     for number in range(0, int(uppercase_length)):
         uppercase += random.choice(string.ascii_uppercase)
-    digits_length = int(input("How many digits would you like? > "))
+    digits_length = int(input("How many digits would you like in your password? > "))
     digits = ""
     for number in range(0, int(digits_length)):
         digits += random.choice(string.digits)
-    punctuation_length = int(input("How many punctuations would you like? > "))
+    punctuation_length = int(input("How many punctuations would you like in your password? > "))
     punctuation = ""
     for number in range(0, int(punctuation_length)):
         punctuation += random.choice(string.punctuation)

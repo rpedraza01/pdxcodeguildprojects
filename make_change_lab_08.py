@@ -2,16 +2,17 @@
 while True:
     pennies = int(input("Please enter how many pennies you have. > "))
     dollars = pennies // 100
-    #pennies = pennies % 100
+    #pennies %= 100
     #print(f"You have the equivalent of {dollars} dollars in pennies.")
     quarters = pennies // 25
-    #pennies = pennies % 25
+    #pennies %= 25
     #print(f"You have the equivalent of {quarters} quarters in pennies.")
     dimes = pennies // 10
-    #pennies = pennies % 10
+    #pennies %= 10
     #print(f"You have the equivalent of {dimes} dimes in pennies.")
     nickels = pennies // 5
-    #pennies = pennies % 5
+    #pennies %= 5
+    #remaining_pennies = pennies
     #print(f"You have the equivalent of {nickels} nickels in pennies.")
     print(f"You have the equivalent of {dollars} dollars, {quarters} quarters, {dimes} dimes, and {nickels} nickels.")
     #print(f"And you have {pennies} pennies remaining.")
@@ -24,6 +25,6 @@ while True:
         pennies = dollars / .01
         pennies = int(pennies)
         print(f"You have {pennies} pennies.")
-    exit = input("Would you like to convert more change again? > ")
+    exit = input("Would you like to convert more change? > ")
     if exit != 'yes':
         break
