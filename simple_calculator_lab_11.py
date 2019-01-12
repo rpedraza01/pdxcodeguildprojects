@@ -11,7 +11,7 @@ while True:
             break
         except ValueError:
             print("Please enter a number.")
-        # Lines 15 - 26 are involved in carrying out the acutal math depending on what operation the user inputs. The if and elifs are executed depending what is called from the math_operations dictionary.
+        # Lines 15 - 28 are involved in carrying out the acutal math depending on what operation the user inputs. The if and elifs are executed depending what is called from the math_operations dictionary.
     if math_operation_input == "+":
         output = first_number_input + second_number_input
         # sum_addition = first_number_input + second_number_input
@@ -32,7 +32,7 @@ while True:
     print(f"{first_number_input} {math_operation_input} {second_number_input} = {output}")
     #sum_output = (first_number_input + second_number_input)
     #print(f"{first_number_input} {math_operation_input} {second_number_input} = {sum_output}")
-    # Lines 30 - 32 are a simple exit string that gives the user an option to do more math or quit out of the program.
+    # Lines 36 - 38 are a simple exit string that gives the user an option to do more math or quit out of the program.
     exit = input("Would you like to do some more math? > ")
     if exit != "yes":
         break
