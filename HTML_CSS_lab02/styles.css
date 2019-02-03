@@ -1,0 +1,135 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+header {
+	position: fixed;
+	background-color: transparent;
+	font-family: 'Roboto', sans-serif;
+	width: 73%;
+	margin: auto;
+	padding: auto;
+	border: 1px solid lightgray;
+	background-color: #FFBD25;
+	border-radius: 25px;
+}
+
+body {
+	float: right;
+	background-color: #1962FF;
+}
+
+main {
+	margin-top: 160px;
+}
+
+h1, h3, h4 {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	margin: 5px;
+	padding: 5px;
+}
+
+h3 {
+	font-size: 22px;
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 25px;
+
+}
+
+h4 {
+	font-size: 20px;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	margin: 5px;
+	padding: 5px;
+}
+
+.article {
+	display: inline-block;
+	max-width: 100%;
+	font-size: 14px;
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid lightgray;
+	background-color: #FFBD25;
+	border-radius: 25px;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: auto;
+	border-radius: 25px;
+}
+
+nav {
+	text-align: center;
+	margin: 5px;
+	padding: 5px;
+}
+
+.menu a:hover {
+	color: #f1f1f1;
+}
+
+nav > p {
+	display: inline-block;
+	padding: 5px;
+	background-color: #1962FF;
+	border-radius: 10px;
+}
+
+.gif {
+	overflow: hidden;
+	display: block;
+	max-width: 100%;
+}
+
+.sidebar {
+	float: left;
+	position: fixed;
+	width: 25%;
+	height: 100%;
+	right-border: 1px solid lightgray;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+}
+
+.container {
+	float: right;
+	max-width: 73%;
+	box-sizing: border-box;
+}
+
+.footer {
+	font-size: 8px;
+}
+
+@media (min-width: 1000px) {
+
+	header {
+		position: fixed;
+		width: 73%;
+		right: 0;
+		z-index: 5;
+	}
+
+	.menu {
+		/*display: none;*/
+	}
+
+}
