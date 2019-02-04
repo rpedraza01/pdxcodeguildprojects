@@ -95,7 +95,7 @@ nav > p {
 .gif {
 	overflow: hidden;
 	display: block;
-	max-width: 100%;
+	/*max-width: 100%;*/
 }
 
 .sidebar {
@@ -115,6 +115,12 @@ nav > p {
 	box-sizing: border-box;
 }
 
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 .footer {
 	font-size: 8px;
 }
@@ -128,8 +134,15 @@ nav > p {
 		z-index: 5;
 	}
 
-	.menu {
-		/*display: none;*/
+	.container {
+		margin: 80px auto 0;
+		width: 900px;
+		border-left: 1px lightgray;
+		border-right: 1px lightgray;
+	}
+
+	.sidebar {
+		float: left;
 	}
 
 }
