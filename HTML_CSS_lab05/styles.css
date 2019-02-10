@@ -1,0 +1,47 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	background-image: url("bigburrito.jpg");
+	background-repeat: no-repeat;
+	font-family: "Roboto", sans-serif;
+}
+
+h1, h3 {
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: #474747 3px 5px 2px;
+}
+
+label {
+	color: #FFFFFF;
+	text-shadow: #474747 3px 5px 2px;
+}
+
+fieldset.personal-info {
+	justify-content: center;
+}
+
+@media (min-width: 1000px) {
+	h1, h3 {
+		text-align: center;
+	}
+
+	body {
+		background-image: url("bigburrito.jpg");
+		max-height: 100%;
+		flex-wrap: wrap; 
+	}
+
+	fieldset {
+		flex: flex-shrink;
+	}
+
+	label {
+		justify-content: center;
+	}
+}
