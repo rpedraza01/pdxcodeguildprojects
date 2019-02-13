@@ -4,3 +4,15 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	text-align: center;
+}

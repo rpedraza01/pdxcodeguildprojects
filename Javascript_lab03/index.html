@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Unit Converter</title>
+	<title>Welcome to Unit Converter</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<h1>Welcome to Unit Converter</h1>
+	<header>
+		<h1>Welcome to Unit Converter</h1>
+	</header>
+
+	<main>
+		
+		<h3>Please enter the amount of units you would like to convert:</h3>
+		<input id="unitInput" type="text" value="0">
+
+		<br>
+
+		<h3>Please enter the unit of measurement for your inputted units:</h3>
+		<h4>Accepted units are: in, ft, yd, mi, mm, cm, m, km</h4>
+		<input id="unitSelect" type="text" placeholder="m, in, ft, cm etc...">
+
+		<br>
+
+		<h3>Please enter the unit of measurement you wish to convert to:</h3>
+		<h4>Accepted units are: in, ft, yd, mi, mm, cm, m, km</h4>
+		<input id="unitConvert" type="text" placeholder="m, in, ft, cm etc...">
+
+		<br>
+
+		<button id="convertButton">Convert</button>
+		<div id="convertOutput">
+			<h3>Your original units are now converted to: </h3>
+			<h4 id="convertPrint">0</h4>
+		</div>
+
+	</main>
 
 	<script src="unit_converter.js"></script>
 </body>
