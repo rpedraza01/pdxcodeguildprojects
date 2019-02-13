@@ -9,25 +9,19 @@ class ATM {
     }
 
     deposit(amount_in) {
-        // alert(this.transactions)
         this.balance += parseFloat(amount_in);
         var message = `You've deposited +$${amount_in}`;
-        alert(message)
+        // alert(message);
         this.transactions.push(message);
-        // alert(this.transactions);
         return message;
     }
-
-    // check_withdrawl(amount) {
-    //     return this.balance >= amount;
-    // }
 
     withdraw(amount_out) {
         var message = `You've withdrawn -$${amount_out}`;
         this.transactions.push(message);
         if (amount_out < this.check_balance()) {
             this.balance -= parseFloat(amount_out);
-            alert(message);
+            // alert(message);
         }
         else {
             alert("Insufficient funds. Please withdraw an amount less than your account balance.");
@@ -35,9 +29,7 @@ class ATM {
     }
 
     print_transactions() {
-        for (line in this.transactions) {
-            alert(line);
-        }
+        alert(this.transactions);
     }
 
     atm_commands() {
@@ -50,34 +42,46 @@ class ATM {
 }
 
 let atm = new ATM();
-while (true) {
-    alert("Welcome to ATM.");
-    while (true) {
-        var command = ["deposit", "withdraw", "check balance", "transaction history", "exit"];
-        var user_command = prompt("What would you like to do today? (Deposit, Withdraw, Check Balance, Transaction History, Exit)");
-        alert(user_command);
-        // alert(command);
-        if (command.includes(user_command)) {
-            if (user_command === "deposit") {
-                atm.deposit(prompt("How much would you like to deposit?"));
-            }
 
-            else if (user_command === "withdraw") {
-                atm.withdraw(prompt("How much would you like to withdraw?"));
-            }
+var ul = document.createElement("ul");
+let body = document.getElementsByTagName("body")[0];
+let balance = document.getElementById("balance");
 
-            else if (user_command === "check balance") {
-                alert(atm.check_balance());
-            }
+let depositButton = document.querySelector("#depositButton");
+depositButton.addEventListener("click", function() {
+    let depositField = document.getElementById("depositInput");
+    let depositInput = depositField.value;
+    // console.log(depositInput);
+    atm.deposit(depositInput);
+    balance.innerText = `Your Balance is $${atm.check_balance()}`;
+    var li = document.createElement("li");
+    li.innerText = `+$${depositInput}`;
+    // console.log(li);
+    ul.appendChild(li);
+    // console.log(ul);
+    depositField.value = "0";
+});
 
-            else if (user_command === "transaction history") {
-                alert(atm.print_transactions());
-            }
+// let balanceButton = document.querySelector("#balanceButton");
+// balanceButton.addEventListener("click", function() {
+//     alert(`Your balance is $${atm.check_balance()}`);
+// });
 
-            else {
-                break;
-            }
-    break;
-        }
-    }
-}
+let withdrawButton = document.querySelector("#withdrawButton");
+withdrawButton.addEventListener("click", function() {
+    let withdrawField = document.getElementById("withdrawInput");
+    let withdrawInput = withdrawField.value;
+    atm.withdraw(withdrawInput);
+    balance.innerText = `Your Balance is $${atm.check_balance()}`;
+    var li = document.createElement("li");
+    li.innerText = `-$${withdrawInput}`;
+    ul.appendChild(li);
+    withdrawField.value = "0";
+});
+
+// let transactionButton = document.getElementById("transactionButton");
+// transactionButton.addEventListener("click", function() {
+//     alert(atm.print_transactions());
+// });
+
+body.appendChild(ul);

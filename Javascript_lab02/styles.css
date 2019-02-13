@@ -6,6 +6,7 @@ html {
 }
 
 body {
+	display: grid;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -13,6 +14,11 @@ header {
 	text-align: center;
 }
 
+
 main {
 	text-align: center;
+}
+
+@media (min-width: 1000px) {
+
 }

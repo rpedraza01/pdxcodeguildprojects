@@ -4,18 +4,40 @@
 	<title>Javascript Lab 1: Blackjack Advice</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
 	<header>
 		<h1>Welcome to the Blackjack Advisor!</h1>
 	</header>
-		<p>What is the value of your first card?</p>
-		<input id="card_input1" type="text">
-		<p>What is the value of your second card?</p>
-		<input id="card_input2" type="text">
-		<button id="run_button">Advise me!</button>
-		<div id="total"></div>
+
+	<main>
+		<!-- <form> -->
+			<h3>What is your first card?</h3>
+			<input id="card_input1" type="text" value="0">
+			<br>
+
+			<h3>What is your second card?</h3>
+			<input id="card_input2" type="text" value="0">
+			<br>
+
+			<button id="adviceButton">Advise me!</button>
+			<div id="adviceTotal" value= "0"><h4>Your hand is: </h4></div>
+			<br>
+
+			<h3>What is your next card?</h3>
+			<input id="nextCard_input" type="text" value="0">
+			<br>
+
+			<button id="adviceAgainbutton">Advise me again!</button>
+			<div id="newAdvicetotal" value= "0"><h4>Your new hand is: </h4></div>
+
+			<!-- <button type="reset">Reset</button> -->
+		<!-- </form> -->
+	</main>
 
 	<script src="blackjack_advice.js"></script>
 </body>

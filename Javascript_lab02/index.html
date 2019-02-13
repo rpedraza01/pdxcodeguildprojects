@@ -2,8 +2,36 @@
 <html>
 <head>
 	<title>ATM</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+	<header>
+		<h1>Bank of Rodrigo</h1>
+		<h2>ATM</h2>
+	</header>
+
+	<main>
+		<div id="balanceDiv">
+			<h3 id="balance">Your Balance is $0</h3>
+		</div>
+		<br>
+		<div id="depositDiv">
+			<input id="depositInput" type="text" value="0">
+				<button id="depositButton">Deposit</button>
+		</div>
+		<br>
+		<div id="withdrawDiv">
+			<input id="withdrawInput" type="text" value="0">
+				<button id="withdrawButton">Withdraw</button>
+		</div>
+		<!-- <div id="transactionDiv">
+			<button id="transactionButton">Transaction History</button>
+		</div> -->
+	</main>
+
 	<script src="atm.js"></script>
 </body>
 </html>
