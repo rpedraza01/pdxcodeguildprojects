@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	text-align: center;
+}
+
+#ulCompleted {
+	text-decoration: line-through;
+}
