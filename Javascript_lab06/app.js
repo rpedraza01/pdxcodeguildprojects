@@ -1,42 +1,33 @@
-function addNum(i) {
-	if (i < 10) {
-		i = "0" + i;
-	}
-	return i;
+let watchDate = new Date()
+	watchDate.setHours(0,0,0,0);
+let startWatchtime = setInterval(watchTime, 1000);
+function watchTime() {
+	let stopwatchDisplay = document.getElementById("stopwatchDisplay");
+	let watchHours = watchDate.getHours();
+	let watchMinutes = watchDate.getMinutes();
+	let watchSeconds = watchDate.getSeconds();
+		// watchSeconds = setInterval(function() {
+	watchDate.setSeconds(watchDate.getSeconds() + 1);
+				// watchTime(watchSeconds);
+		// }, 1000);
+	console.log(watchSeconds);
+	stopwatchDisplay.innerHTML = watchHours + " hours : " + watchMinutes + " minutes : " + watchSeconds + " seconds";
+	// setTimeout(watchTime(), 1000);
 }
 
-// function time() {
-let date = new Date();
-let dateTimedisplay = document.getElementById("clockDisplay");
-dateTimedisplay.addEventListener("onload", function() {
+let startBtn = document.getElementById("start");
+	startBtn.innerText = "Start";
+	startBtn.addEventListener("click", function() {
 
-});
-let hours = addNum(date.getHours());
-let minutes = addNum(date.getMinutes());
-let seconds = addNum(date.getSeconds());
-	let timeSeconds = 0;
-	let tSeconds = setInterval(function() {
-		timeSeconds += 1;
-			date(seconds);
-	}, 1000);
-dateTimedisplay.innerHTML = hours + " : " + minutes + " : " + seconds;
-// }
+	});
 
-// function watchTime() {
-let watchDate = new Date()
-watchDate.setHours(0,0,0,0);
-let stopwatchDisplay = document.getElementById("stopwatchDisplay");
-stopwatchDisplay.addEventListener("onload", function() {
+let lapTimesul = document.createElement("ul");
+let lapLi = document.createElement("li");
+let lapBtn = document.getElementById("lap");
+	lapBtn.innerText = "Lap";
+	lapBtn.addEventListener("click", function() {
+		lapTimesul.appendChild(lapLi);
 
-});
-let watchHours = watchDate.getHours();
-let watchMinutes = watchDate.getMinutes();
-let watchSeconds = watchDate.getSeconds();
-	let time_watchSeconds = 0;
-	let twatchSeconds = setInterval(function() {
-		time_watchSeconds += 1;
-			watchDate(watchSeconds);
-	}, 1000);
-let watchMilliseconds = watchDate.getMilliseconds();
-stopwatchDisplay.innerHTML = watchHours + " : " + watchMinutes + " : " + watchSeconds + " : " + watchMilliseconds;
-// }
+	});
+
+watchTime();
