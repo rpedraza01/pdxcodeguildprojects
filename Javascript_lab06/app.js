@@ -1,33 +1,37 @@
-let watchDate = new Date()
+let watchDate = new Date();
 	watchDate.setHours(0,0,0,0);
-let startWatchtime = setInterval(watchTime, 1000);
+// let startWatchtime = setInterval(watchTime, 1000);
 function watchTime() {
 	let stopwatchDisplay = document.getElementById("stopwatchDisplay");
 	let watchHours = watchDate.getHours();
 	let watchMinutes = watchDate.getMinutes();
 	let watchSeconds = watchDate.getSeconds();
-		// watchSeconds = setInterval(function() {
 	watchDate.setSeconds(watchDate.getSeconds() + 1);
-				// watchTime(watchSeconds);
-		// }, 1000);
-	console.log(watchSeconds);
+	// console.log(watchSeconds);
 	stopwatchDisplay.innerHTML = watchHours + " hours : " + watchMinutes + " minutes : " + watchSeconds + " seconds";
-	// setTimeout(watchTime(), 1000);
 }
 
 let startBtn = document.getElementById("start");
 	startBtn.innerText = "Start";
 	startBtn.addEventListener("click", function() {
+		startBtn = setInterval(watchTime, 1000);
+	});
+
+let stopBtn = document.getElementById("stop");
+	stopBtn.innerText = "Stop";
+	stopBtn.addEventListener("click", function() {
+		stopBtn = clearInterval(startBtn);
 
 	});
 
-let lapTimesul = document.createElement("ul");
-let lapLi = document.createElement("li");
-let lapBtn = document.getElementById("lap");
-	lapBtn.innerText = "Lap";
-	lapBtn.addEventListener("click", function() {
-		lapTimesul.appendChild(lapLi);
-
-	});
+let lapNum = 1;
+let lap = document.getElementById("lap");
+lap.innerHTML = "Lap";
+let lapTimes = document.getElementById("lapTimes");
+lap.addEventListener("click", function(watchTime) {
+	// let 
+	lapTimes.innerHTML += `<li> Lap ${lapNum}: ${stopwatchDisplay.innerHTML} </li>`;
+	lapNum += 1;
+});
 
 watchTime();
