@@ -1,0 +1,26 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+	font-family: 'Roboto Mono', monospace;
+	color: #20C20E;
+	background-color: black;
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	text-align: center;
+}
+
+textarea {
+	font-family: 'Roboto Mono', monospace;
+	color: #20C20E;
+	background-color: black;
+}
