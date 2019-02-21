@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 9: Random Quote</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+	<body>
+		<header>
+			<h1>Let's Get A Random Quote</h1>
+		</header>
+
+		<main>
+			<h2>What would you like a quote about?</h2>
+			<input id="quoteField" type="text">
+			<br>
+			<button id="quoteButton">Quote Me!</button>
+			<br>
+			<div>
+				<!-- <button id="first" value="first">First</button> -->
+				<button id="previousTop" class="previous" name="previous">Prev</button>
+				<button id="nextTop" class="next" name="next">Next</button>
+				<!-- <button id="last" value="last">Last</button> -->
+			</div>
+			<br>
+			<h3 id="quoteBox"></h3>
+
+			<div>
+				<button id="previousBottom" class="previous" name="previous">Prev</button>
+				<button id="nextBottom" class="next" name="next">Next</button>
+			</div>
+
+		</main>
+
+		<script src="app.js"></script>
+	</body>
+</html>

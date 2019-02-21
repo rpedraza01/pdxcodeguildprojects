@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	/*color: #20C20E;
+	background-color: black;
+	height: 100%;*/
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	text-align: center;
+}
