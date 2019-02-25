@@ -10,9 +10,34 @@ body {
 }
 
 header {
-	text-align: center;
+	/*text-align: center;*/
+	position: sticky;
 }
 
 main {
 	text-align: center;
+	background-image: url("money.jpg");
+	background-repeat: repeat;
+	color: white;
+	text-shadow: #474747 3px 5px 2px;
+}
+
+article {
+	display: block;
+	align-content: center;
+	background-color: #85bb65;
+	/*width: 80%;*/
+	text-shadow: none;
+	color: black;
+	font-size: 16px;
+	margin: 5px;
+	padding: 5px;
+	/*border: 1px solid black;*/
+}
+
+footer > p {
+	font-size: 12px;
+	text-align: center;
+	margin: auto;
+	padding: auto;
 }

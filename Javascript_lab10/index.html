@@ -5,30 +5,84 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 	<body>
 		<header>
-			<h1>Follow The Money!</h1>
+			<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #85bb65;">
+				<a class="navbar-brand" href="#"><img class="home" src="dollarbill.jpg" alt="money" width="50" height="50"></img></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+			  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			    <div class="navbar-nav">
+			      <p><a class="nav-item nav-link" href="#candidateId">Candidate FEC ID</a></p>
+			      <p><a class="nav-item nav-link" href="#candidateFin">Candiate Finances</a></p>
+			      <p><a class="nav-item nav-link" href="#candidateComm">Campaign Committee</a></p>
+			      <p><a class="nav-item nav-link" href="#committeeName">Committee Name Search</a></p>
+			      <p><a class="nav-item nav-link" href="#lobbyistSearch">Lobbyist Search</a></p>
+			    </div>
+			  </div>
+			</nav>
 		</header>
 
 		<main>
+			<h1>Follow The Money!</h1>
 			<h2>Let's Find Some Dark Money:</h2>
+			<br>
 			<div>
-				<h3>First, Let's Find A Candidate's FEC ID #:</h3>
-				<input id="idSearchField" type="" name="" placeholder="Last Name">
+				<h3 id="candidateId">Candidate FEC ID</h3>
+				<p>Look up a candidate by name:</p>
+				<input id="idSearchField" type="text" placeholder="Candidate Name">
 				<button id="idSearchBtn">Search</button>
-				<h4 id="idSearchResults">Results:</h4>
+				<h5 id="idSearchResults">Results:</h5>
 			</div>
 			<br>
 			<div>
-				<h3>Now, Enter That FEC ID # To Retrieve Financial Info On Your Candidate:</h3>
-				<input id="finSearchField" type="" name="" placeholder="9-Character ID #">
+				<h3 id="candidateFin">Candidate Finances</h3>
+				<p>Enter that FEC ID # to retrieve financial info on your candidate:</p>
+				<input id="finSearchField" type="text" placeholder="9-Character ID #">
 				<button id="finSearchBtn">Search</button>
-				<h4 id="finSearchResults">Results:</h4>
+				<h5 id="finSearchResults">Results:</h5>
+			</div>
+			<br>
+			<div>
+				<h3 id="candidateComm">Campaign Committee</h3>
+				<p>You can get more info on your candidate's campaign committee by entering their Campaign Committee ID #:</p>
+				<input id="campidSearchField" type="text" placeholder="9-Character ID #">
+				<button id="campidSearchBtn">Search</button>
+				<h5 id="campidSearchResults">Results:</h5>
+			</div>
+			<br>
+			<div>
+				<h3 id="committeeName">Committee Name Search</h3>
+				<p>You can also search for a campaign committee by name:</p>
+				<input id="campnameSearchField" type="text" placeholder="Committee Name">
+				<button id="campnameSearchBtn">Search</button>
+				<h5 id="campnameSearchResults">Results:</h5>
+			</div>
+			<br>
+			<div>
+				<h3 id="lobbyistSearch">Lobbyist Search</h3>
+				<p>With a Campaign Committee ID #, you can look up which lobbyists collected and contributed money:</p>
+				<input id="lobidSearchField" type="text" placeholder="9-Character ID #">
+				<button id="lobidSearchBtn">Search</button>
+				<h5 id="lobidSearchResults">Results:</h5>
 			</div>
 		</main>
 
+		<footer class="navbar navbar-expand-lg navbar-light" style="background-color: #85bb65;">
+			<p class="footer-copyright text-center py-3">© 2019 Copyright:
+				<a href="https://github.com/rpedraza01"> A Rodrigo Pedraza Production</a>
+			</p>
+		</footer>
+
 		<script src="app.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 	</body>
 </html>
