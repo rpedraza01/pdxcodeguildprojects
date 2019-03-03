@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 {% load static %}
 
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Django Lab 02: URL Shortener</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{% static 'url_shortener_app/styles.css' %}">
 </head>
 
 <body>
 	<h1>Welcome To The URL Shortener</h1>
+	<h3>Please enter a URL you wish to shorten</h3>
 	<form action="{% url 'url_shortener_app:submit_url' %}" method="post">
 		{% csrf_token %}
-		<input type="text" name="URL-text" placeholder="Enter the URL to shorten">
+		<input type="text" name="URL-text" placeholder="https://www.example.com/">
+		<br>
 		<input type="submit" name="urlShortBtn" value="Add URL">
+		<hr>
 	</form>
-
 	<div>
 	<h1>Your New Short URL</h1>
+	<h3>You can click the link below and it will redirect you to your website</h3>
 	{% for item in short_url_list %}
-		<ul action="{% url 'url_shortener_app:get_short_url' %}" method="post">
-			{% csrf_token %}
-			<li><a href="{% url 'url_shortener_app:redirect_user' item.short_code %}">{{ item.short_code }}</a></li>
-		</ul>
+		{% csrf_token %}
+		<p action="{% url 'url_shortener_app:get_short_url' %}" method="post"><a href="{% url 'url_shortener_app:redirect_user' item.short_code %}">{{ item.short_code }}</a></p>
 	{% endfor %}
 	</div>
 
