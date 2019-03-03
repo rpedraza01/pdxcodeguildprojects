@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>Django Lab 02: URL Shortener</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'url_shortener_app/styles.css' %}">
+</head>
+
+<body>
+	<h1>Welcome To The URL Shortener</h1>
+	<form action="{% url 'url_shortener_app:submit_url' %}" method="post">
+		{% csrf_token %}
+		<input type="text" name="URL-text" placeholder="Enter the URL to shorten">
+		<input type="submit" name="urlShortBtn" value="Add URL">
+	</form>
+
+	<div>
+	<h1>Your New Short URL</h1>
+	{% for item in short_url_list %}
+		<ul action="{% url 'url_shortener_app:get_short_url' %}" method="post">
+			{% csrf_token %}
+			<li><a href="{% url 'url_shortener_app:redirect_user' item.short_code %}">{{ item.short_code }}</a></li>
+		</ul>
+	{% endfor %}
+	</div>
+
+</body>
+</html>

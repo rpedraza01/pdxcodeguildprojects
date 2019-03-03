@@ -1,0 +1,29 @@
+{# <h1>{{ GroceryItem.item_description_text }}</h1> #}
+<h1>My Grocery List</h1>
+
+<body>
+	<form action="{% url 'grocery_list_lab:add_item'  %}" method="post">
+		{% csrf_token %}
+		<input type="text" name="description">
+		<input type="submit" name="listAddBtn" value="Add">
+	</form>
+
+
+	<ul>
+	{% for item in grocery_list %}
+		<form action="{% url 'grocery_list_lab:remove_item' item.id  %}" method="post">
+			{% csrf_token %}
+				<li name="remove">{{ item.item_description_text }}</li>
+				<input type="submit" value="Completed">
+		</form>
+	{% endfor %}
+	</ul>
+
+	<h1>Completed List</h1>
+		<ul>
+		{% for item in completed_grocery_list %}
+			<li>{{ item.item_description_text }}</li>
+		{% endfor %}
+		</ul>
+
+</body>

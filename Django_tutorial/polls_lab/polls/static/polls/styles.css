@@ -1,0 +1,20 @@
+li a {
+	color: green;
+}
+
+li a:visited {
+	color: green;
+}
+
+body {
+	background: white url("background.gif") repeat;
+}
+
+ul {
+	background-color: white;
+}
+
+h1 {
+	background-color: yellow;
+	text-align: center;
+}

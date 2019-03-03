@@ -42,7 +42,7 @@ function candidateId() {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/2016/candidates/search.json?query=${encodeURIComponent(idSearchField.value)}`;
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "");
+	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
 
@@ -117,7 +117,7 @@ function candidateFinance() {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/2016/candidates/${encodeURIComponent(finSearchField.value)}.json`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "");
+	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
 
@@ -183,7 +183,7 @@ function campCommId() {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/2016/committees/${encodeURIComponent(campidSearchField.value)}.json`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "");
+	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
 
@@ -234,7 +234,7 @@ function campName() {
 	});
 	let url = `https://api.propublica.org/campaign-finance/v1/2016/committees/search.json?query=${encodeURIComponent(campnameSearchField.value)}`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "");
+	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
 
@@ -293,7 +293,7 @@ function lobId() {
 	});
 	let url = `https://api.propublica.org/campaign-finance/v1/2016/committees/${encodeURIComponent(lobidSearchField.value)}/lobbyist_bundlers.json`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "");
+	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
 
