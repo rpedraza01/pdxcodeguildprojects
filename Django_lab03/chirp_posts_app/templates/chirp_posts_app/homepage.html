@@ -1,0 +1,21 @@
+{% extends 'chirp_posts_app/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	<br>
+	Hello, {{ user.username }}!
+	<button><a href="{% url 'logout' %}">Logout</a></button>
+
+	<h1>Chirp Feed!</h1>
+	{% for item in object_list %}
+		<div class="chirp-post">
+			<h3>{{ item.chirp_title }}</h3>
+			<p>{{ item.chirp_text }}</p>
+			<p>{{ item.date_posted }}</p>
+			<h4>{{ item.author }}</h4>
+		</div>
+	{% endfor %}
+{% endif %}
+{% endblock %}

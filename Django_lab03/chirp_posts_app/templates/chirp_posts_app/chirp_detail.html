@@ -1,0 +1,11 @@
+{% extends 'chirp_posts_app/base.html' %}
+
+{% block content %}
+	<div class="chirp-entry">
+		<h2>{{ post.chirp_title }}</h2>
+		<p>{{ post.chirp_text }}</p>
+	</div>
+
+	<p><a href="{% url 'chirp_delete' post.id %}">Delete Chirp</a></p>
+	<p><a href="{% url 'chirp_edit' post.id %}">Edit Chirp</a></p>
+{% endblock content %}

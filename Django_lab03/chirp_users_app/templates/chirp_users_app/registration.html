@@ -1,0 +1,12 @@
+{% extends 'chirp_users_app/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Register"></input>
+</form>
+{% endblock %}
