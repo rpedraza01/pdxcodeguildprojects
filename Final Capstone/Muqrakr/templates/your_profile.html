@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<h2>{{ user.username }}'s Profile</h2>
+	<br>
+	<div>
+		<img src="">
+		<h3>Title goes here</h3>
+		<p>About user info goes here</p>
+		<p class="aboutUsertext">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet ligula pellentesque, laoreet nisl sed, tempus felis. In vel est commodo, consectetur mi in, fermentum metus. Ut interdum nisi eget ligula mattis, blandit feugiat diam molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam tincidunt velit est, ac commodo turpis iaculis ac. Aliquam vitae nulla molestie, rhoncus nisl vel, ultrices mi.
+		</p>
+	</div>
+	<br>
+		<h3>Saved Searches:</h3>
+			<div class="searchLeft">
+				<p class="savedCand">Saved Candidate Searches</p>
+				<ul>
+					<li><a>Rep. Kathy Johnson (D) - Washington</a></li>
+					<li><a>Sen. Jim Timms (R) - Wyoming</a></li>
+					<li><a>Rep. Ralph Garcia (I) - Texas</a></li>
+					<li><a>Sen. Karen Wu (D) - California</a></li>
+				</ul>
+			</div>
+			<div class="searchRight">
+				<p class="savedComm">Saved Committee Searches</p>
+				<ul>
+					<li><a>Americans for a Better Tomorrow Yesterday</a></li>
+					<li><a>Bernie 2020</a></li>
+					<li><a>Ted Cruz's Neckbeard PAC</a></li>
+					<li><a>Dump Trump SuperPAC</a></li>
+				</ul>
+			</div>
+
+{% endblock %}

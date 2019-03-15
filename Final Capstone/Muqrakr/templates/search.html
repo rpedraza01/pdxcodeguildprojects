@@ -1,0 +1,57 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<h2>Candidate/Committee Search</h2>
+	<div class="candSearchleft">
+		<h3>Candidate Search</h3>
+		<img src="{% static 'Muqrakr/candidate_search.jpg' %}" alt="candidate_search" width="475" height="380">
+		<p>Look up a candidate by name:</p>
+			<select id="yearCandSearchselect">
+				<option value="Select Election Year">Select Election Year</option>
+				<option value="2018">2018</option>
+				<option value="2016">2016</option>
+				<option value="2014">2014</option>
+				<option value="2012">2012</option>
+				<option value="2010">2010</option>
+				<option value="2008">2008</option>
+				<option value="2006">2006</option>
+				<option value="2004">2004</option>
+				<option value="2002">2002</option>
+				<option value="2000">2000</option>
+			</select>
+		<input id="candidateSearchField" type="text" placeholder="Candidate Name">
+		<button id="candidateSearchBtn" type="submit">Search</button>
+		{% if user.is_authenticated %}
+			<button type="submit" id="saveCandSearchBtn">Save</button>
+		{% endif %}
+		<p id="candidateSearchResults">Results:</p>
+	</div>
+	<hr>
+	<div class="commSearchright">
+		<h3>Campaign Committee Search</h3>
+		<img src="{% static 'Muqrakr/committee_search.jpg' %}" alt="committee_search" width="475" height="380">
+		<p>Look up a campaign committee by name:</p>
+		<select id="yearCommSearchselect">
+				<option value="Select Election Year">Select Election Year</option>
+				<option value="2018">2018</option>
+				<option value="2016">2016</option>
+				<option value="2014">2014</option>
+				<option value="2012">2012</option>
+				<option value="2010">2010</option>
+				<option value="2008">2008</option>
+				<option value="2006">2006</option>
+				<option value="2004">2004</option>
+				<option value="2002">2002</option>
+				<option value="2000">2000</option>
+			</select>
+		<input id="campidSearchField" type="text" placeholder="Committee Name">
+		<button id="campidSearchBtn">Search</button>
+		{% if user.is_authenticated %}
+			<button type="submit" id="saveCommSearchBtn">Save</button>
+		{% endif %}
+		<p id="campidSearchResults">Results:</p>
+	</div>
+	<script type="text/javascript" src="{% static 'Muqrakr/candidateSearchapp.js' %}"></script>
+{% endblock %}

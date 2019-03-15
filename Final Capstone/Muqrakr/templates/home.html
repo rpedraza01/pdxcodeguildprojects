@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}Muqrakr{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'Muqrakr/styles.css' %}">
+</head>
+<body>
+	<h1>Muqrakr</h1>
+	{% if user.is_authenticated %}
+	<p>Hi, {{ user.username }}!
+	<button><a href="{% url 'logout' %}">Log out</a></button>
+		<nav class="navbar">
+			<button class="topbtn"><a href="{% url 'profiles_app:home' %}">Home</a></button>
+			<button class="topbtn"><a href="{% url 'profiles_app:about' %}">About</a></button>
+			<button class="topbtn"><a href="{% url 'profiles_app:intro_to_cf' %}">Intro to Campaign Finance</a></button>
+			<button class="topbtn"><a href="{% url 'profiles_app:search' %}">Candidate/Committee Search</a></button>
+				<div class="dropdown">
+					<button class="dropbtn">Profile</button>
+					<div class="dropdown-content">
+						<button><a href="{% url 'profiles_app:your_profile' %}">Your Profile</a></button>
+						<button><a href="{% url 'profiles_app:update_your_profile' %}">Edit Profile</a></button>
+						<button><a href="{% url 'profiles_app:create_your_profile' %}">Create Profile</a></button>
+					</div>
+				</div>
+		</nav>
+		{% block content %}
+		{% endblock %}
+	{% else %}
+	<button><a href="{% url 'login' %}">Log In </a></button>
+	<button><a href="{% url 'signup' %}">Sign Up</a></button>
+	{% endif %}
+</body>
+</html>
