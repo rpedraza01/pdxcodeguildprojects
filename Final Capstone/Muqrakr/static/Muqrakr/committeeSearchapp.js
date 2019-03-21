@@ -77,7 +77,7 @@ function committeeSearchId(fecCommId) {
 			response = JSON.parse(request.responseText);
 				console.log(response);
 			committeeSearchResults.innerHTML = "";
-			response.results.forEach(function(query) {
+			response.results.forEach(function(query, i) {
 				// console.log(query.id);
 			resultsHTML2 = `
 			<p>Committee Name: ${query.name}</p>
@@ -97,7 +97,8 @@ function committeeSearchId(fecCommId) {
 			<p>Total Candidate Contributions: $${query.total_candidate_contributions}</p>
 			<p>This Information Was First Gathered: ${query.date_coverage_from}</p>
 			<p>This Information Was Finalized: ${query.date_coverage_to}</p>
-			<p><button class="idBtn3" value="${query.id}">Lobbyist Bundlers</button>
+			<button class="idBtn3" value="${query.id}">Lobbyist Bundlers</button>
+			<button id="save${i}">Save Search</button>
 			`
 			console.log(resultsHTML2);
 				let committeeSearcharticle = document.createElement("article");

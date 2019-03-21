@@ -12,4 +12,5 @@ urlpatterns = [
     path('update_your_profile/', views.UpdateYourProfile.as_view(), name='update_your_profile'),
     path('create_your_profile/', views.CreateYourProfile.as_view(), name='create_your_profile'),
     path('ajax/save_search/', views.ajax_save_search, name='save_search'),
+    path('ajax/save_search_committee/', views.ajax_save_search_committee, name='save_search_committee'),
 ]

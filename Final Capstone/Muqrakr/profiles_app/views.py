@@ -52,6 +52,33 @@ def ajax_save_search(request):
         )
     return HttpResponse(request.body)
 
+@csrf_exempt
+def ajax_save_search_committee(request):
+    query = json.loads(request.body)
+    print(query)
+    CommitteeSearch.objects.create(
+        committee_name = query['name'],
+        user = request.user,
+        party = query['party'],
+        comm_treasurer = query['treasurer'],
+        comm_address = f"{query['address']}, {query['city']}, {query['state']}, {query['zip']}",
+        total_receipts = query['total_receipts'],
+        total_cont_ind = query['total_from_individuals'],
+        total_cont_pacs = query['total_from_pacs'],
+        total_cont = query['total_contributions'],
+        # total_loans = query[''],
+        total_disbursements = query['total_disbursements'],
+        begin_cash = query['begin_cash'],
+        end_cash = query['end_cash'],
+        total_refunds = query['total_refunds'],
+        debts_owed = query['debts_owed'],
+        ind_expend = query['total_independent_expenditures'],
+        coord_expend = query['total_candidate_contributions'],
+        begin_info_date = query['date_coverage_from'],
+        final_info_date = query['date_coverage_to'],
+        )
+    return HttpResponse(request.body)
+
 class YourProfileView(LoginRequiredMixin, TemplateView):
     # success_url = reverse_lazy('your_profile')
     template_name = 'your_profile.html'
