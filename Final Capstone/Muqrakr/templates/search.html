@@ -10,6 +10,7 @@
 		<p>Look up a candidate by first or last name:</p>
 			<select id="yearCandSearchselect">
 				<option value="Select Election Year">Select Election Year</option>
+				<option value="2020">2020</option>
 				<option value="2018">2018</option>
 				<option value="2016">2016</option>
 				<option value="2014">2014</option>
@@ -23,12 +24,18 @@
 			</select>
 		<input id="candidateSearchField" type="text" placeholder="Candidate Name">
 		<button id="candidateSearchBtn" type="submit">Search</button>
-		{% if user.is_authenticated %}
-			<button type="submit" id="saveCandSearchBtn">Save</button>
-		{% endif %}
+		{% comment %}
 		<div id="searchResultsdiv">
+		{% endcomment %}
 			<p id="candidateSearchResults">Results:</p>
+			{% comment %}
+			<form>
+				<button type="submit" class="candSaveBtn" action="{%  %}" method="POST" name="candSaveForm">Save Data</button>
+			</form>
+			{% endcomment %}
+		{% comment %}
 		</div>
+		{% endcomment %}
 	</div>
 
 	<div class="commSearchright">
@@ -37,6 +44,7 @@
 		<p>Look up a campaign committee by name:</p>
 		<select id="yearCommSearchselect">
 				<option value="Select Election Year">Select Election Year</option>
+				<option value="2020">2020</option>
 				<option value="2018">2018</option>
 				<option value="2016">2016</option>
 				<option value="2014">2014</option>
@@ -50,13 +58,25 @@
 			</select>
 		<input id="committeeSearchField" type="text" placeholder="Committee Name">
 		<button id="committeeSearchBtn">Search</button>
-		{% if user.is_authenticated %}
-			<button type="submit" id="saveCommSearchBtn">Save</button>
-		{% endif %}
+		{% comment %}
 		<div id="searchResultsdiv2">
+		{% endcomment %}
 			<p id="committeeSearchResults">Results:</p>
+			{% comment %}
+			<form>
+				<button type="submit" class="commSaveBtn" action="{%  %}" method="POST" name="commSaveForm">Save Data</button>
+			</form>
+			{% endcomment %}
+		{% comment %}
 		</div>
+		{% endcomment %}
 	</div>
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	{% comment %}
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	{% endcomment %}
 	<script type="text/javascript" src="{% static 'Muqrakr/candidateSearchapp.js' %}"></script>
 	<script type="text/javascript" src="{% static 'Muqrakr/committeeSearchapp.js' %}"></script>
 {% endblock %}

@@ -1,5 +1,4 @@
 let candidateSearchField = document.getElementById("candidateSearchField");
-// let idBtn = document.getElementsByClassName("idBtn");
 let yearCandSearchselect = document.getElementById("yearCandSearchselect");
 let candidateSearchBtn = document.getElementById("candidateSearchBtn");
 let candidateSearchResults = document.getElementById("candidateSearchResults");
@@ -36,6 +35,13 @@ function candidateSearch() {
 			candidateSearcharticle.innerHTML = resultsHTML;
 			candidateSearchResults.appendChild(candidateSearcharticle);
 			});
+
+		let moreInfoBtn = document.getElementsByClassName("idBtn");
+		for (let i = 0; i < moreInfoBtn.length; i++) {
+			moreInfoBtn[i].addEventListener("click", function() {
+				candidateSearchId(this.value);
+			});
+		}
 		}
 		catch(err) {
 			let message = "Error, please try again later.";
@@ -56,7 +62,7 @@ candidateSearchBtn.addEventListener("click", function() {
 	console.log(candidateSearchField.innerHTML);
 });
 
-function candidateSearchId() {
+function candidateSearchId(fecCandId) {
 	let request = new XMLHttpRequest();
 
 	request.addEventListener("progress", function() {
@@ -69,26 +75,18 @@ function candidateSearchId() {
 
 	request.addEventListener("load", function() {
 		let response;
-		console.log(response);
+		console.log(request.responseText);
 
 		try {
 			response = JSON.parse(request.responseText);
 			candidateSearchResults.innerHTML = "";
-			response.results.forEach(function(query) {
-				console.log(query.candidate.id);
+			response.results.forEach(function(query, i) {
+				console.log('query=',query);
+			let commID = query.committee?query.committee.slice(12,-5):"Campaign committee not found. Please try a different Candidate ID #";
 			let resultsHTML = `
-			<p>Name: ${query.first_name} ${query.last_name}</p>
-			<p>Date of Birth: ${query.date_of_birth}</p>
-			<p>Gender: ${query.gender}</p>
-			<p>URL: <a href="${query.url}">${query.url}</a></p>
-			<p>Positon: ${query.title}, 
-			<p>State and District: ${query.state} ${query.district}</p>
-			<p>Party Affiliation: ${query.current_party}</p>
-			<p>Congressional Office Phone #: ${query.phone}</p>
-			<p>Bills Sponsored: ${query.bills_sponsored}</p>
-			<p>Bills Cosponsored: ${query.bills_cosponsored}</p>
-			<p>Missed Votes %: ${query.missed_votes_pct}%</p>
-			<p>Votes with Party %: ${query.votes_with_party_pct}%</p>
+			<p>Name: ${query.name}</p>
+			<p>Party Affiliation: ${query.party}</p>
+			<p>Office Address: ${query.mailing_address}, ${query.mailing_city}, ${query.mailing_state}, ${query.mailing_zip}</p>
 			<p>Total Receipts: $${query.total_receipts}</p>
 			<p>Total Contributions From Individuals: $${query.total_from_individuals}</p>
 			<p>Total Contributions From PACs: $${query.total_from_pacs}</p>
@@ -103,12 +101,86 @@ function candidateSearchId() {
 			<p>Coordinated Expenditures: $${query.coordinated_expenditures}</p>
 			<p>This Information Was First Gathered: ${query.date_coverage_from}</p>
 			<p>This Information Was Finalized: ${query.date_coverage_to}</p>
+			<button class="idBtn4" value="${commID}">Lobbyist Contributors</button>
+			<button id="save${i}">Save Search</button>
 			`
 			let candidateSearcharticle = document.createElement("article");
 			candidateSearcharticle.className = "item";
 			candidateSearcharticle.innerHTML = resultsHTML;
 			candidateSearchResults.appendChild(candidateSearcharticle);
 			console.log(resultsHTML);
+			document.getElementById(`save${i}`).addEventListener("click", function() {
+				$.ajax({
+					  method: "POST",
+					  url: "/ajax/save_search/",
+					  data: JSON.stringify(query),
+					  // contentType: "application/json",
+					  processData: false
+					})
+					  .done(function( msg ) {
+					    alert( "Data Saved: " + msg );
+					  });
+				})
+			});
+
+		let lobInfoBtn2 = document.getElementsByClassName("idBtn4");
+			for (let i = 0; i < lobInfoBtn2.length; i++) {
+			lobInfoBtn2[i].addEventListener("click", function() {
+				lobbyistSearch2(this.value);
+			});
+		}
+		}
+		catch(err) {
+			let message = "Error, please try again later.";
+			document.getElementById("candidateSearchResults").innerHTML = message + err.message;
+		}
+	});
+
+	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCandSearchselect.value)}/candidates/${encodeURIComponent(fecCandId)}.json`;
+	request.open("GET", url);
+	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.send();
+}
+
+function lobbyistSearch2(fecLobId2) {
+	let request = new XMLHttpRequest();
+
+	request.addEventListener("progress", function() {
+		candidateSearchResults.innerText = "Getting committee info..."
+	});
+
+	request.addEventListener("error", function() {
+		candidateSearchResults.innerText = "Info unavailable at this time, please try again later."
+	});
+
+	request.addEventListener("load", function() {
+		console.log(request);
+		let response;
+		console.log(request.responseText);
+
+	try {
+			response = JSON.parse(request.responseText);
+				// console.log(response);
+			candidateSearchResults.innerHTML = "";
+			response.results.forEach(function(query) {
+			resultsHTML =`
+			<p>Filing ID#: ${query.fec_filing_id}</p>
+			<p>Transaction ID #: ${query.transaction_id}</p>
+			<p>Entity Type: ${query.entity_type}</p>
+			<p>Lobbyist Organization: ${query.bundler_organization_name}</p>
+			<p>Lobbyist Name: ${query.bundler_first_name} ${query.bundler_last_name}</p>
+			<p>Lobbyist Address: ${query.bundler_street_1}, ${query.bundler_city}, ${query.bundler_state}, ${query.bundler_zip}</p>
+			<p>Lobbyist Employer: ${query.bundler_employer}</p>
+			<p>Lobbyist Occupation: ${query.bundler_occupation}</p>
+			<p>Amount Contributed: $${query.bundled_amount}</p>
+			<p>This Information Was First Gathered: ${query.start_date}</p>
+			<p>This Information Was Finalized: ${query.end_date}</p>
+			`
+			console.log(resultsHTML);
+			let lobbyistSearcharticle2 = document.createElement("article");
+			lobbyistSearcharticle2.className = "item";
+			lobbyistSearcharticle2.innerHTML = resultsHTML;
+			candidateSearchResults.appendChild(lobbyistSearcharticle2);
 			});
 		}
 		catch(err) {
@@ -117,16 +189,9 @@ function candidateSearchId() {
 		}
 	});
 
-	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(candidateSearch(yearCandSearchselect.value))}/candidates/${encodeURIComponent(candidateSearch(candidateSearchField.value))}.json`;
+	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCandSearchselect.value)}/committees/${encodeURIComponent(fecLobId2)}/lobbyist_bundlers.json`
 	request.open("GET", url);
 	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
 
-searchResultsdiv.addEventListener("click", function(e) {
-	if (e.target && e.target.matches("button.idBtn")) {
-		return;
-		console.log(searchResultsdiv);
-	}
-		candidateSearchId();
-});
