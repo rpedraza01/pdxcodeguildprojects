@@ -127,3 +127,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = 'profiles_app:home'
 LOGOUT_REDIRECT_URL = 'profiles_app:home'
+
+MEDIA_URL = '/profile_pics/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'profile_pics')

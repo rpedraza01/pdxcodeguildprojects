@@ -105,6 +105,24 @@ def save_search_csv(request):
     response['Content-Disposition'] = 'attachment; filename="candidatesearch.csv"'
     candidates = CandidateSearch.objects.filter(user=request.user)
     writer = csv.writer(response)
+    writer.writerow([
+        'Name',
+        'Party',
+        'Office Address',
+        'Total Receipts',
+        'Total Individual Contributions',
+        'Total PAC Contributions',
+        'Total Contributions',
+        'Total Loans',
+        'Total Disbursements',
+        'Beginning Cash',
+        'Ending Cash',
+        'Total Refunds',
+        'Debts Owed',
+        'Independent Expenditures',
+        'Coordinated Expenditures',
+        'Filing Date'
+        ])
     for candidate in candidates:
         writer.writerow([
             candidate.name,
@@ -123,7 +141,6 @@ def save_search_csv(request):
             candidate.ind_expend,
             candidate.coord_expend,
             candidate.begin_info_date,
-            candidate.final_info_date,
             ])
     return response
 
@@ -132,6 +149,24 @@ def save_search_committee_csv(request):
     response['Content-Disposition'] = 'attachment; filename="committeesearch.csv"'
     committees = CommitteeSearch.objects.filter(user=request.user)
     writer = csv.writer(response)
+    writer.writerow([
+        'Committee Name',
+        'Party',
+        'Treasurer',
+        'Office Address',
+        'Total Receipts',
+        'Total Individual Contributions',
+        'Total PAC Contributions',
+        'Total Contributions',
+        'Total Disbursements',
+        'Beginning Cash',
+        'Ending Cash',
+        'Total Refunds',
+        'Debts Owed',
+        'Independent Expenditures',
+        'Coordinated Expenditures',
+        'Filing Date'
+        ])
     for committee in committees:
         writer.writerow([
             committee.committee_name,
@@ -150,7 +185,6 @@ def save_search_committee_csv(request):
             committee.ind_expend,
             committee.coord_expend,
             committee.begin_info_date,
-            committee.final_info_date,
             ])
     return response
 
@@ -170,11 +204,11 @@ class CreateYourProfile(LoginRequiredMixin, CreateView):
 class UpdateYourProfile(LoginRequiredMixin, UpdateView):
     model = YourProfile
     template_name = 'update_your_profile.html'
-    fields = ['user_title', 'about_user', 'user_pic']
-    success_url = reverse_lazy('profiles_app:your_profile.html')
+    fields = ['user_pic', 'user_title', 'about_user']
+    success_url = reverse_lazy('profiles_app:your_profile')
 
     def form_valid(self, form):
-        form.instance.user_name = self.request.users_app.CustomUser
+        form.instance.user_name = self.request.user
         return super().form_valid(form)
 
     def get_object(self, queryset=None):

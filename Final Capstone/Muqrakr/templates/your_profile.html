@@ -12,8 +12,8 @@
 	{% endcomment %}
 		<img src="{% static 'profile_pics' %}">{% comment %}{{ item.user_pic }}{% endcomment %}
 		<h3>{{ item.user_title }}</h3>
-		<article class="aboutUsertext">{{ item.about_user }}</article>
-		
+		<textarea class="aboutUsertext">{{ item.about_user }}</textarea>
+		<br>
 		<button><a href="{% url 'profiles_app:update_your_profile' %}">Update Profile</a></button>
 	{% comment %}	
 	{% endfor %}
@@ -22,18 +22,20 @@
 	<br>
 		<h3>Saved Searches:</h3>
 			<div class="savedSearchLeft">
-				<p class="savedCand">Saved Candidate Searches</p>
+				<h3 class="savedCand">Saved Candidate Searches</h3>
+				<button class="csvBtn"><a href="{% url 'profiles_app:candidate_csv' %}">Download CSV</a></button>
 				{% for search in object_list %}
 				<ul class="saveCandlist">
-					<li><a>{{ search.name }}</a><input type="checkbox" name="checkbox"></li>
+					<li class="savedSearchitem"><a>{{ search.name }}</a><input type="checkbox" name="checkbox" class="checkbox"></li>
 				</ul>
 				{% endfor %}
 			</div>
 			<div class="savedSearchRight">
-				<p class="savedComm">Saved Committee Searches</p>
+				<h3 class="savedComm">Saved Committee Searches</h3>
+				<button class="csvBtn"><a href="{% url 'profiles_app:committee_csv' %}">Download CSV</a></button>
 				{% for search in committeesearch_list %}
 				<ul class="saveCommlist">
-					<li><a>{{ search.committee_name }}</a><input type="checkbox" name="checkbox"></li>
+					<li class="savedSearchitem"><a>{{ search.committee_name }}</a><input type="checkbox" name="checkbox" class="checkbox"></li>
 				</ul>
 				{% endfor %}
 			</div>

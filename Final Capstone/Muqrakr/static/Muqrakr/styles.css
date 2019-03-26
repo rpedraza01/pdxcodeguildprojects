@@ -78,7 +78,7 @@ div {
   width: auto;
 }
 
-p.aboutUsertext {
+textarea.aboutUsertext {
   text-align: left;
 }
 
@@ -87,13 +87,17 @@ div.savedSearchLeft {
   margin: 10px;
   padding: 5px;
   border-radius: 4px;
-  width: 45%;
+  width: 46%;
   float: left;
-  text-align: left;
 }
 
-p.savedCand {
+h3.savedCand {
   text-align: center;
+  margin: 5px;
+}
+
+ul.saveCandlist {
+  text-align: left;
 }
 
 div.savedSearchRight {
@@ -101,13 +105,29 @@ div.savedSearchRight {
   margin: 10px;
   padding: 5px;
   border-radius: 4px;
-  width: 45%;
+  width: 46%;
   float: right;
+}
+
+h3.savedComm {
+  text-align: center;
+  margin: 5px;
+}
+
+ul.saveCommlist {
   text-align: left;
 }
 
-p.savedComm {
-  text-align: center;
+li.savedSearchitem {
+  border-bottom: 1px solid black;
+}
+
+button.csvBtn {
+
+}
+
+input.checkbox {
+  float: right;
 }
 
 img {
@@ -130,15 +150,11 @@ article.item {
 }
 
 div.candSearchleft {
-  /*float: left;*/
   text-align: center;
-  /*width: 45%;*/
 }
 
 div.commSearchright {
-  /*float: right;*/
   text-align: center;
-  /*width: 45%;*/
 }
 
 select {
