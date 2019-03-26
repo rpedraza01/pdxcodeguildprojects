@@ -13,4 +13,6 @@ urlpatterns = [
     path('create_your_profile/', views.CreateYourProfile.as_view(), name='create_your_profile'),
     path('ajax/save_search/', views.ajax_save_search, name='save_search'),
     path('ajax/save_search_committee/', views.ajax_save_search_committee, name='save_search_committee'),
+    path('candidate_csv/',views.save_search_csv),
+    path('committee_csv/', views.save_search_committee_csv),
 ]

@@ -2,7 +2,7 @@ let candidateSearchField = document.getElementById("candidateSearchField");
 let yearCandSearchselect = document.getElementById("yearCandSearchselect");
 let candidateSearchBtn = document.getElementById("candidateSearchBtn");
 let candidateSearchResults = document.getElementById("candidateSearchResults");
-let searchResultsdiv = document.querySelector("#searchResultsdiv");
+// let searchResultsdiv = document.querySelector("#searchResultsdiv");
 let resultsHTML;
 
 function candidateSearch() {
@@ -194,4 +194,3 @@ function lobbyistSearch2(fecLobId2) {
 	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
 	request.send();
 }
-

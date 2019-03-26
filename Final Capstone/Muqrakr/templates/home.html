@@ -18,6 +18,8 @@
 			<button class="topbtn"><a href="{% url 'profiles_app:about' %}">About</a></button>
 			<button class="topbtn"><a href="{% url 'profiles_app:intro_to_cf' %}">Intro to Campaign Finance</a></button>
 			<button class="topbtn"><a href="{% url 'profiles_app:search' %}">Candidate/Committee Search</a></button>
+			<button><a href="{% url 'profiles_app:your_profile' %}">Your Profile</a></button>
+				{% comment %}
 				<div class="dropdown">
 					<button class="dropbtn">Profile</button>
 					<div class="dropdown-content">
@@ -26,6 +28,7 @@
 						<button><a href="{% url 'profiles_app:create_your_profile' %}">Create Profile</a></button>
 					</div>
 				</div>
+				{% endcomment %}
 		</nav>
 		{% block content %}
 		{% endblock %}

@@ -2,7 +2,7 @@ let committeeSearchField = document.getElementById("committeeSearchField");
 let yearCommSearchselect = document.getElementById("yearCommSearchselect");
 let committeeSearchBtn = document.getElementById("committeeSearchBtn");
 let committeeSearchResults = document.getElementById("committeeSearchResults");
-let searchResultsdiv2 = document.querySelector("#searchResultsdiv2");
+// let searchResultsdiv2 = document.querySelector("#searchResultsdiv2");
 let resultsHTML2;
 
 function committeeSearch() {

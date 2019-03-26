@@ -38,7 +38,7 @@ class CandidateSearch(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('Muqrakr:', args=[str(self.id)])
+        return reverse('Muqrakr:your_profile', args=[str(self.id)])
 
 #another model would be saved committee searches
 class CommitteeSearch(models.Model):
@@ -70,4 +70,4 @@ class CommitteeSearch(models.Model):
         return self.committee_name
 
     def get_absolute_url(self):
-        return reverse('Muqrakr:', args=[str(self.id)])
+        return reverse('Muqrakr:your_profile', args=[str(self.id)])
