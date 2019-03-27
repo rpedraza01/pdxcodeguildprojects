@@ -15,4 +15,6 @@ urlpatterns = [
     path('ajax/save_search_committee/', views.ajax_save_search_committee, name='save_search_committee'),
     path('candidate_csv/',views.save_search_csv, name='candidate_csv'),
     path('committee_csv/', views.save_search_committee_csv, name='committee_csv'),
+    path('delete_candidate/', views.delete_candidate, name='delete_candidate'),
+    path('delete_committee/', views.delete_committee, name='delete_committee'),
 ]

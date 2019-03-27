@@ -10,7 +10,7 @@
 	{% comment %}
 	{% for item in object_list %}
 	{% endcomment %}
-		<img src="{% static 'profile_pics' %}">{% comment %}{{ item.user_pic }}{% endcomment %}
+		<img src="{% static 'profile_pics/john_smith.jpg' %}" width="200" height="200">{% comment %}{{ item.user_pic }}{% endcomment %}
 		<h3>{{ item.user_title }}</h3>
 		<textarea class="aboutUsertext">{{ item.about_user }}</textarea>
 		<br>
@@ -22,22 +22,32 @@
 	<br>
 		<h3>Saved Searches:</h3>
 			<div class="savedSearchLeft">
+				<form method="POST">
+					{% csrf_token %}
 				<h3 class="savedCand">Saved Candidate Searches</h3>
-				<button class="csvBtn"><a href="{% url 'profiles_app:candidate_csv' %}">Download CSV</a></button>
+				<button type="submit" class="csvBtn" formaction="{% url 'profiles_app:candidate_csv' %}">Download</button>
+				<button type="submit" class="delBtn" formaction="{% url 'profiles_app:delete_candidate' %}">Delete</button>
 				{% for search in object_list %}
 				<ul class="saveCandlist">
-					<li class="savedSearchitem"><a>{{ search.name }}</a><input type="checkbox" name="checkbox" class="checkbox"></li>
+					<li class="savedSearchitem"><a>{{ search.name }}</a>
+							<input type="checkbox" name="checkbox" class="checkbox" value="{{ search.id }}">
+					</li>
 				</ul>
 				{% endfor %}
+				</form>
 			</div>
 			<div class="savedSearchRight">
+				<form method="POST">
+					{% csrf_token %}
 				<h3 class="savedComm">Saved Committee Searches</h3>
-				<button class="csvBtn"><a href="{% url 'profiles_app:committee_csv' %}">Download CSV</a></button>
+				<button class="csvBtn" formaction="{% url 'profiles_app:committee_csv' %}">Download</button>
+				<button type="submit" class="delBtn" formaction="{% url 'profiles_app:delete_committee' %}">Delete</button>
 				{% for search in committeesearch_list %}
 				<ul class="saveCommlist">
-					<li class="savedSearchitem"><a>{{ search.committee_name }}</a><input type="checkbox" name="checkbox" class="checkbox"></li>
+					<li class="savedSearchitem"><a>{{ search.committee_name }}</a><input type="checkbox" name="checkbox" class="checkbox" value="{{ search.id }}"></li>
 				</ul>
 				{% endfor %}
+				</form>
 			</div>
 {% endif %}
 {% endblock %}

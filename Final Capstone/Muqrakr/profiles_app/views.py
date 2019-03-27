@@ -1,10 +1,11 @@
-# from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from .forms import ProfileForm
 import json, csv
 
 from .models import YourProfile, CandidateSearch, CommitteeSearch
@@ -100,6 +101,17 @@ class YourProfileView(LoginRequiredMixin, ListView):
         context['committeesearch_list'] = CommitteeSearch.objects.filter(user=self.request.user)
         return context
 
+
+def delete_candidate(request):
+    for id in request.POST.getlist('checkbox'):
+        get_object_or_404(CandidateSearch, pk=id).delete()
+    return HttpResponseRedirect(reverse('profiles_app:your_profile'))
+
+def delete_committee(request):
+    for id in request.POST.getlist('checkbox'):
+        get_object_or_404(CommitteeSearch, pk=id).delete()
+    return HttpResponseRedirect(reverse('profiles_app:your_profile'))
+
 def save_search_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="candidatesearch.csv"'
@@ -123,7 +135,8 @@ def save_search_csv(request):
         'Coordinated Expenditures',
         'Filing Date'
         ])
-    for candidate in candidates:
+    for id in request.POST.getlist('checkbox'):
+        candidate = get_object_or_404(CandidateSearch, pk=id)
         writer.writerow([
             candidate.name,
             candidate.party,
@@ -167,7 +180,8 @@ def save_search_committee_csv(request):
         'Coordinated Expenditures',
         'Filing Date'
         ])
-    for committee in committees:
+    for id in request.POST.getlist('checkbox'):
+        committee = get_object_or_404(CommitteeSearch, pk=id)
         writer.writerow([
             committee.committee_name,
             committee.party,
@@ -192,7 +206,8 @@ def save_search_committee_csv(request):
 class CreateYourProfile(LoginRequiredMixin, CreateView):
     model = YourProfile
     template_name = 'create_your_profile.html'
-    fields = ['user_title', 'about_user', 'user_pic']
+    form_class = ProfileForm
+    # fields = ['user_title', 'about_user', 'user_pic']
     login_url = 'login'
     success_url = reverse_lazy('your_profile.html')
 
@@ -204,7 +219,8 @@ class CreateYourProfile(LoginRequiredMixin, CreateView):
 class UpdateYourProfile(LoginRequiredMixin, UpdateView):
     model = YourProfile
     template_name = 'update_your_profile.html'
-    fields = ['user_pic', 'user_title', 'about_user']
+    form_class = ProfileForm
+    # fields = ['user_pic', 'user_title', 'about_user']
     success_url = reverse_lazy('profiles_app:your_profile')
 
     def form_valid(self, form):

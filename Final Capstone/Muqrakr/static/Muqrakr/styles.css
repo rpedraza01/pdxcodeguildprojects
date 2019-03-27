@@ -80,6 +80,7 @@ div {
 
 textarea.aboutUsertext {
   text-align: left;
+  font-family: "Raleway", sans-serif;
 }
 
 div.savedSearchLeft {
@@ -123,8 +124,23 @@ li.savedSearchitem {
 }
 
 button.csvBtn {
-
+  border: solid #32CD32;
+  text-decoration: none;
 }
+
+/*button.csvBtn:hover {
+  color: #555;
+
+}*/
+
+button.delBtn {
+  border: solid #FF0000;
+  text-decoration: none;
+}
+
+/*button.delBtn:hover {
+  color: #555;
+}*/
 
 input.checkbox {
   float: right;
