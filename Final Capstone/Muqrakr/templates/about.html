@@ -1,11 +1,71 @@
 {% extends 'home.html' %}
-
+{% load static %}
 {% block content %}
 <br>
 <h2>About Muqrakr</h2>
 <article>
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet ligula pellentesque, laoreet nisl sed, tempus felis. In vel est commodo, consectetur mi in, fermentum metus. Ut interdum nisi eget ligula mattis, blandit feugiat diam molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam tincidunt velit est, ac commodo turpis iaculis ac. Aliquam vitae nulla molestie, rhoncus nisl vel, ultrices mi. Praesent vitae ornare ipsum, sit amet placerat nibh. Donec id felis tempus, dignissim metus eu, finibus diam. Vivamus volutpat vestibulum turpis in aliquet. Nullam nisi metus, condimentum ut luctus eu, sodales id sapien. Quisque nec ultrices felis, tristique gravida lectus. Aenean viverra facilisis neque, eget porttitor elit dapibus eu.
+		Muqrakr is meant to make the ever increasingly dark world of campaign finance more accessible to the average person. How can we truly know that our elected officials are acting in the interests of their constiuents or their financial benefactors? One way to find out is by following the money. Thanks to the Federal Election Commission and the ProPublica Campaign Finance API, we can access thousands and thousands of campaign finance records.
+	</p>
+	<p>
+		Muqrakr has been designed so that if you know how to use Google Search, then you'll have an easy time using the Candidate and Committee Search features. If you create a profile, you can even save your searches and download them to a CSV file for further analysis.
+	</p>
+	<p>
+		So what are you waiting for? Start following the money and holding your elected officials accountable!
 	</p>
 </article>
+<br>
+<h2>A Bit About Muckraking</h2>
+<article>
+	<p>
+		The term <i><a href="https://en.wikipedia.org/wiki/Muckraker">'muckraker'</a></i> was first coined during the Progressive Era of the early 20th century. Muckrakers were investigative journalists who targeted government officials and corporations for their misdeeds and corruption. These journalists often called for sweeping reforms in the interest of protecting the public and workers.
+	</p>
+	<p>
+		The Progressive Era and muckrakers rose in response to the excess and corruption of the Gilded Age during the late 19th century. Many people became concerned at how corporate monopolies were abusing workers, consumers, and the environment all while the government did nothing to stop these power grabs. How could a government allow its people to be at the mercy of for-profit institutions? Simple, the government itself had been bought by the very corporations they were charged with regulating.
+		This should all start to sound familiar.
+	</p>
+</article>
+<br>
+<h2>Notable Muckrakers</h2>
+<div id="notable_muckrakers">
+	<div class="div_muckrakers">
+			<span><p>Upton Sinclair</p></span>
+			<a href="https://en.wikipedia.org/wiki/Upton_Sinclair">
+			<img class="img_muckrakers" src="{% static 'Muqrakr/Upton_Sinclair.jpg' %}" alt="Upton_Sinclair" width="216" height="291">
+			</a>
+		<article>
+			Upton Sinclair wrote many books criticizing the abuse and exploitation of people by corporations. His most famous work is <i>The Jungle</i> which is about the horrible working conditions in the Chicago meatpacking industry.
+		</article>
+	</div>
+
+	<div class="div_muckrakers">
+			<span><p>Nellie Bly</p></span>
+			<a href="https://en.wikipedia.org/wiki/Nellie_Bly">
+			<img src="{% static 'Muqrakr/Nellie_Bly.jpg' %}" alt="Nellie_Bly" width="216" height="291">
+			</a>
+		<article>
+			Early in her career, Nellie Bly went undercover as a psychiatric patient at a notoriously harsh pychiatric hospital. She remained undercover for ten days in order to gather as much information and evidence of the hospital staff's abusive behavior.
+		</article>
+	</div>
+
+	<div class="div_muckrakers">
+			<span><p>Louis Brandeis</p></span>
+			<a href="https://en.wikipedia.org/wiki/Louis_Brandeis">
+			<img src="{% static 'Muqrakr/Louis_Brandeis.jpg' %}" alt="Louis_Brandeis" width="216" height="291">
+			</a>
+		<article>
+			Louis Brandeis was an outspoken critic of monopolies, big banks, and big business. His critiques of corporations are collected in his book <i>Other People's Money and How the Bankers Use It</i>. He was a lifelong public advocate, eventually bringing that advocacy to the Supreme Court as an Associate Justice.
+		</article>
+	</div>
+
+	<div class="div_muckrakers">
+			<span><p>Ida M. Tarbell</p></span>
+			<a href="https://en.wikipedia.org/wiki/Ida_Tarbell">
+			<img src="{% static 'Muqrakr/Ida_M_Tarbell.jpg' %}" alt="Ida_M_Tarbell" width="216" height="291">
+			</a>
+		<article>
+			Ida Tarbell was an early investigative journalist and wrote extensively about the 'trusts' that controlled much of the American economy during the late 19th and early 20th centuries. She was a prolific writer and was an expert at breaking down complex subjects into easily understable articles. Her work helped influence the creation the Clayton Anti-trust Act.
+		</article>
+	</div>
+</div>
 {% endblock %}

@@ -70,6 +70,23 @@ input[type="text"] {
   box-shadow: none;
 }
 
+/*div#notable_muckrakers {*/
+  /*float: left;*/
+  /*border: none;*/
+/*}
+
+div.div_muckrakers {*/
+  /*width: 100%;*/
+/*}
+
+div.div_muck_left {
+  float: left;
+}
+
+img.img_muckrakers {*/
+  /*float: left;*/
+/*}
+*/
 div {
   border: 1px solid #D1D1D1;
   margin: 10px;
