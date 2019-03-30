@@ -11,9 +11,10 @@ import json, csv
 from .models import YourProfile, CandidateSearch, CommitteeSearch
 
 
+
 class HomePageView(TemplateView):
-    success_url = reverse_lazy('home')
-    template_name = 'home.html'
+    success_url = reverse_lazy('homepage')
+    template_name = 'homepage.html'
 
 
 class AboutView(TemplateView):

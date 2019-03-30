@@ -4,7 +4,7 @@ from . import views
 
 app_name = 'profiles_app'
 urlpatterns = [
-    path('', views.HomePageView.as_view(), name='home'),
+    path('', views.HomePageView.as_view(), name='homepage'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('intro/', views.IntroToCFView.as_view(), name='intro_to_cf'),
     path('search/', views.SearchView.as_view(), name='search'),

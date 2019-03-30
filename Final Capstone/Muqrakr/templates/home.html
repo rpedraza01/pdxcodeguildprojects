@@ -5,36 +5,53 @@
 	<meta charset="utf-8">
 	<title>{% block title %}Muqrakr{% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{% static 'Muqrakr/styles.css' %}">
 </head>
-<body>
-	<h1>Muqrakr</h1>
-	{% if user.is_authenticated %}
-	<p>Hi, {{ user.username }}!
-	<button><a href="{% url 'logout' %}">Log out</a></button>
-		<nav class="navbar">
-			<button class="topbtn"><a href="{% url 'profiles_app:home' %}">Home</a></button>
-			<button class="topbtn"><a href="{% url 'profiles_app:about' %}">About</a></button>
-			<button class="topbtn"><a href="{% url 'profiles_app:intro_to_cf' %}">Intro to Campaign Finance</a></button>
-			<button class="topbtn"><a href="{% url 'profiles_app:search' %}">Candidate/Committee Search</a></button>
-			<button><a href="{% url 'profiles_app:your_profile' %}">Your Profile</a></button>
-				{% comment %}
-				<div class="dropdown">
-					<button class="dropbtn">Profile</button>
-					<div class="dropdown-content">
-						<button><a href="{% url 'profiles_app:your_profile' %}">Your Profile</a></button>
-						<button><a href="{% url 'profiles_app:update_your_profile' %}">Edit Profile</a></button>
-						<button><a href="{% url 'profiles_app:create_your_profile' %}">Create Profile</a></button>
-					</div>
+<body style=" background-color: #E8E9C9;">
+	<header style="background-color: #228D57;">
+		<br>
+		<h1><b>Muqrakr</b></h1>
+		{% if user.is_authenticated %}
+		<h2>Hi, {{ user.username }}!</h2>
+		<br>
+	</header>
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #85bb65;">
+			<a href="{% url 'profiles_app:homepage' %}"><img class="home" src="{% static 'Muqrakr/magnifying_glass.png' %}" width="50" height="50" style="border: none;"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="border: none;">
+				<div class="navbar-nav" style="border: none;" style="position: center;">
+					{% comment %}
+					<button class="topbtn"><a href="{% url 'profiles_app:home' %}">Home</a></button>
+					{% endcomment %}
+					<button class="topbtn"><a class="navBtnlink" href="{% url 'profiles_app:about' %}">About Muckraking</a></button>
+					<button class="topbtn"><a class="navBtnlink" href="{% url 'profiles_app:intro_to_cf' %}">Intro to Campaign Finance</a></button>
+					<button class="topbtn"><a class="navBtnlink" href="{% url 'profiles_app:search' %}">Candidate/Committee Search</a></button>
+					<button><a class="navBtnlink" href="{% url 'profiles_app:your_profile' %}">Your Profile</a></button>
+					<button class="topbtn"><a class="navBtnlink" href="#">FAQs</a></button>
+					<button class="topbtn"><a class="navBtnlink" href="#">Contact</a></button>
+					<button><a class="navBtnlink" href="{% url 'logout' %}">Log out</a></button>
 				</div>
-				{% endcomment %}
+			</div>
 		</nav>
+		<br>
 		{% block content %}
 		{% endblock %}
 	{% else %}
 	<button><a href="{% url 'login' %}">Log In </a></button>
 	<button><a href="{% url 'signup' %}">Sign Up</a></button>
 	{% endif %}
+	<br>
+	<footer class="navbar navbar-expand-lg navbar-light" style="background-color: #85bb65;">
+		<br>
+	    	<a style="margin: auto;" class="navBtnlink" href="https://github.com/rpedraza01"><p>© 2019 Copyright: Muqrakr is a Rodrigo Pedraza Production</p></a>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
