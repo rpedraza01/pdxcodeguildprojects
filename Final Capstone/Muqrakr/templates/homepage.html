@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h2><i><b>"Cui bono?"</b></i></h2>
+<br>
+	<img style="border: none;" src="{% static 'Muqrakr/magnifying_glass.png' %}" class="img-fluid" id="glass" alt="magnifying_glass" height="256" width="256">
+<br>
+<br>
+<h2>About Muqrakr</h2>
+<article>
+	<p>
+		Muqrakr is meant to make the ever increasingly dark world of campaign finance more accessible to the average person. How can we truly know that our elected officials are acting in the interests of their constiuents or their financial benefactors? One way to find out is by following the money. Thanks to the Federal Election Commission and the ProPublica Campaign Finance API, we can access thousands and thousands of campaign finance records.
+	</p>
+	<p>
+		Muqrakr has been designed so that if you know how to use Google Search, then you'll have an easy time using the Candidate and Committee Search features. If you create a profile, you can even save your searches and download them to a CSV file for further analysis.
+	</p>
+	<p>
+		So what are you waiting for? Start following the money and holding your elected officials accountable!
+	</p>
+</article>
+
+{% endblock %}
