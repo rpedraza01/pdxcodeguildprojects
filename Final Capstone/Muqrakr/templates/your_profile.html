@@ -43,7 +43,7 @@
 			<div class="savedSearchRight" style="border: none;">
 				<form method="POST">
 					{% csrf_token %}
-				<h3 class="savedComm">Saved Committee Searches</h3>
+				<h3 class="savedComm">Saved Committee Searches:</h3>
 				<br>
 				<button class="csvBtn" formaction="{% url 'profiles_app:committee_csv' %}">Download</button>
 				<button type="submit" class="delBtn" formaction="{% url 'profiles_app:delete_committee' %}">Delete</button>

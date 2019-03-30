@@ -7,7 +7,7 @@ body {
 	line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", sans-serif;
-  color: #222;
+  color: #3E3E3C;
   text-align: center;
 }
 
@@ -19,6 +19,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 48px;
+  color: #E8E9C9;
+}
+
+h2#usernameH2 {
+  color: #E8E9C9;
 }
 
 h2 {
@@ -161,11 +166,19 @@ img {
   border: 1px solid #D1D1D1;
   border-radius: 12px;
   width: auto;
+  border: none;
+  margin: 5px;
+  padding: 5px;
 }
 
 img.img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+img.introcfImg {
+  margin: auto;
+  padding: auto;
 }
 
 article {
@@ -194,4 +207,14 @@ footer {
   text-align: center;
   margin: auto;
   padding: auto;
+}
+
+@media (max-width: 768px) {
+  img.introcfImg {
+    display: none;
+  }
+
+  img.searchImg {
+    display: none;
+  }
 }
