@@ -1,18 +1,65 @@
 #contact_list_lab_23.py
-
-def load(path):
-    with open("contacts_list.csv") as csv_file:
-        lines = csv_file.read().split("\n")
-    
+import csv, os
 
 
+with open('contacts_list.csv', 'r') as file:
+    lines = file.read().split('\n')
+    print(lines)
+    # print(file)
 
-# import os
+def new_user(lines):
+    user = ""
+    name = input("What's your name? > ")
+    user += name + ','
+    fav_fruit = input("What's your favorite fruit? > ")
+    user += fav_fruit + ','
+    fav_color = input("What's your favorite color? > ")
+    user += fav_color
+    lines.append(user)
+    print(lines)
 
-#   # print(contacts)
-# keys = contacts[0].split(",")
-# names = contacts[1].split(",")
-# favorite_fruit = contacts[2].split(",")
-# favorite_color = contacts[3].split(",")
-# # print(keys, names, favorite_fruit, favorite_color)
-# jimmy_dict = {}
+# new_user(lines)
+
+def retrieve_user(lines):
+    name = input("Who're you trying to find? > ")
+    for each in lines:
+        each = each.split(',')
+        if each[0] == name:
+            print(each)
+
+
+# retrieve_user(lines)
+
+def update_record(lines):
+    name = input("Which user are you looking for? > ")
+    attribute = input("Which attribute would you like to change? > ")
+    record = 0
+    for each in lines:
+        each = each.split(',')
+        if each[0] == name:
+            if attribute == "favorite color":
+                change_to = input("What should the new favorite color be? > ")
+                each[2] = change_to
+                each = ",".join(each)
+                lines[record] = each
+                print(lines)
+                return
+            elif attribute == "favorite fruit":
+                change_to = input("What should the new favorite fruit be? > ")
+                each[1] = change_to
+                each = ",".join(each)
+                lines[record] = each
+                print(lines)
+                return
+        record += 1
+
+# update_record(lines)
+
+def delete_record(lines):
+    name = input("Which user are you looking to delete? > ")
+    for each in lines:
+        each = each.remove()
+        if each[0] == name:
+            print("User deleted.")
+
+delete_record(lines)
