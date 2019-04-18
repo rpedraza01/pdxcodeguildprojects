@@ -9,7 +9,7 @@ from .forms import ProfileForm
 import json, csv
 
 from .models import YourProfile, CandidateSearch, CommitteeSearch
-
+from .keys import keys
 
 class HomePageView(TemplateView):
     success_url = reverse_lazy('homepage')
@@ -30,6 +30,8 @@ class SearchView(TemplateView):
     # success_url = reverse_lazy('search')
     template_name = 'search.html'
 
+def api(request):
+    return HttpResponse(keys['pro_publica_key'])
 
 @csrf_exempt
 def ajax_save_search(request):

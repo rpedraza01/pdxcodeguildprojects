@@ -8,6 +8,7 @@ urlpatterns = [
     path('about/', views.AboutView.as_view(), name='about'),
     path('intro/', views.IntroToCFView.as_view(), name='intro_to_cf'),
     path('search/', views.SearchView.as_view(), name='search'),
+    path('search/api/', views.api, name='api'),
     path('your_profile/', views.YourProfileView.as_view(), name='your_profile'),
     path('update_your_profile/', views.UpdateYourProfile.as_view(), name='update_your_profile'),
     path('create_your_profile/', views.CreateYourProfile.as_view(), name='create_your_profile'),

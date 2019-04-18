@@ -4,6 +4,7 @@ let committeeSearchBtn = document.getElementById("committeeSearchBtn");
 let committeeSearchResults = document.getElementById("committeeSearchResults");
 // let searchResultsdiv2 = document.querySelector("#searchResultsdiv2");
 let resultsHTML2;
+let apiKey;
 
 function committeeSearch() {
 	let request = new XMLHttpRequest();
@@ -49,12 +50,18 @@ function committeeSearch() {
 	});
 	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCommSearchselect.value)}/committees/search.json?query=${encodeURIComponent(committeeSearchField.value)}`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.setRequestHeader("X-API-Key", apiKey);
 	request.send();
 }
 
 committeeSearchBtn.addEventListener("click", function() {
-	committeeSearch();
+	fetch('api')
+	.then(res => res.text())
+	.catch(err => console.log(err))
+	.then(res => {
+		apiKey = res
+		committeeSearch();
+	})
 });
 
 function committeeSearchId(fecCommId) {
@@ -133,7 +140,7 @@ function committeeSearchId(fecCommId) {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCommSearchselect.value)}/committees/${encodeURIComponent(fecCommId)}.json`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.setRequestHeader("X-API-Key", apiKey);
 	request.send();
 }
 
@@ -186,6 +193,6 @@ function lobbyistSearch(fecLobId) {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCommSearchselect.value)}/committees/${encodeURIComponent(fecLobId)}/lobbyist_bundlers.json`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.setRequestHeader("X-API-Key", apiKey);
 	request.send();
 }
