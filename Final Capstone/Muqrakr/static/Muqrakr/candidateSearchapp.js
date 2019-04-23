@@ -4,6 +4,7 @@ let candidateSearchBtn = document.getElementById("candidateSearchBtn");
 let candidateSearchResults = document.getElementById("candidateSearchResults");
 // let searchResultsdiv = document.querySelector("#searchResultsdiv");
 let resultsHTML;
+let apiKey;
 
 function candidateSearch() {
 	let request = new XMLHttpRequest();
@@ -51,15 +52,21 @@ function candidateSearch() {
 	console.log(resultsHTML);
 	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCandSearchselect.value)}/candidates/search.json?query=${encodeURIComponent(candidateSearchField.value)}`;
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.setRequestHeader("X-API-Key", apiKey);
 	request.send();
 	console.log(resultsHTML);
 }
 
 candidateSearchBtn.addEventListener("click", function() {
-	candidateSearch();
-	console.log(yearCandSearchselect.innerHTML);
-	console.log(candidateSearchField.innerHTML);
+	fetch('api')
+	.then(res => res.text())
+	.catch(err => console.log(err))
+	.then(res => {
+		apiKey = res
+		candidateSearch();
+	})
+	// console.log(yearCandSearchselect.innerHTML);
+	// console.log(candidateSearchField.innerHTML);
 });
 
 function candidateSearchId(fecCandId) {
@@ -138,7 +145,7 @@ function candidateSearchId(fecCandId) {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCandSearchselect.value)}/candidates/${encodeURIComponent(fecCandId)}.json`;
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.setRequestHeader("X-API-Key", apiKey);
 	request.send();
 }
 
@@ -191,6 +198,6 @@ function lobbyistSearch2(fecLobId2) {
 
 	let url = `https://api.propublica.org/campaign-finance/v1/${encodeURIComponent(yearCandSearchselect.value)}/committees/${encodeURIComponent(fecLobId2)}/lobbyist_bundlers.json`
 	request.open("GET", url);
-	request.setRequestHeader("X-API-Key", "jYFljixpLeen7YwGnVVpSTSPlpex7C0ttSgdwsS5");
+	request.setRequestHeader("X-API-Key", apiKey);
 	request.send();
 }
