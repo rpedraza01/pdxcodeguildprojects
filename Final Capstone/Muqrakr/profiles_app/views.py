@@ -11,6 +11,7 @@ import json, csv
 from .models import YourProfile, CandidateSearch, CommitteeSearch
 from .keys import keys
 
+
 class HomePageView(TemplateView):
     success_url = reverse_lazy('homepage')
     template_name = 'homepage.html'
@@ -30,8 +31,10 @@ class SearchView(TemplateView):
     # success_url = reverse_lazy('search')
     template_name = 'search.html'
 
+
 def api(request):
     return HttpResponse(keys['pro_publica_key'])
+
 
 @csrf_exempt
 def ajax_save_search(request):
@@ -109,10 +112,12 @@ def delete_candidate(request):
         get_object_or_404(CandidateSearch, pk=id).delete()
     return HttpResponseRedirect(reverse('profiles_app:your_profile'))
 
+
 def delete_committee(request):
     for id in request.POST.getlist('checkbox'):
         get_object_or_404(CommitteeSearch, pk=id).delete()
     return HttpResponseRedirect(reverse('profiles_app:your_profile'))
+
 
 def save_search_csv(request):
     response = HttpResponse(content_type='text/csv')
@@ -158,6 +163,7 @@ def save_search_csv(request):
             candidate.begin_info_date,
             ])
     return response
+
 
 def save_search_committee_csv(request):
     response = HttpResponse(content_type='text/csv')
